@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FindMyBus — Choose your seat and book it right away">
+    <title>FindMyBus — Seat Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="seats">
+    <div class="container">
+
+        <a href="journey.html" class="back-link">← Back to Journey</a>
+
+        <h1 class="page-headline">💺 Seat Booking</h1>
+        <p class="page-sub" id="seatBusInfo">Select your preferred seats</p>
+
+        <!-- Legend -->
+        <div class="seat-legend">
+            <span>
+                <div class="leg-box booked-leg"></div> Booked
+            </span>
+            <span>
+                <div class="leg-box available-leg"></div> Available
+            </span>
+            <span>
+                <div class="leg-box selected-leg"></div> Selected
+            </span>
+        </div>
+
+        <!-- Driver area -->
+        <div class="glass-card mb-16 text-center"
+            style="padding:10px;font-size:12px;font-weight:700;color:var(--text-muted)">
+            🚌 FRONT — Driver
+        </div>
+
+        <!-- Seat Grid -->
+        <div class="seat-grid" id="seatGrid"></div>
+
+        <div class="glass-card text-center mb-16">
+            <span style="font-size:13px;color:var(--text-secondary)">Selected seats: </span>
+            <strong id="selectedCount" style="color:var(--accent);font-size:16px">0</strong>
+        </div>
+
+        <a href="ticket.html" class="btn-confirm" style="text-decoration:none;text-align:center;display:block">Proceed
+            to Ticket Booking →</a>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

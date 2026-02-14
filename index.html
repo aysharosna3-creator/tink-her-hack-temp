@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FindMyBus — Search and book bus tickets easily with cute pastel design">
+  <title>FindMyBus — Find Your Perfect Ride</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="home">
+  <div class="container">
+
+    <!-- Brand Header -->
+    <div class="brand">
+      <!-- FindMyBus Logo -->
+      <img src="logo.svg" alt="FindMyBus Logo" class="bus-icon-cute" />
+      <div class="brand-text">
+        <span class="search-icon-mini">🔍</span>
+        <h1>findmybus</h1>
+      </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="glass-card mb-20">
+      <div class="input-group">
+        <label>📅 Travel Date</label>
+        <input type="date" id="travelDate" placeholder="dd/mm/yy">
+      </div>
+      <div class="input-group">
+        <label>📍 From Where?</label>
+        <input type="text" id="fromLocation" placeholder="Enter departure city or stop">
+      </div>
+      <div class="input-group">
+        <label>📍 To Where?</label>
+        <input type="text" id="toLocation" placeholder="Enter destination city or stop">
+      </div>
+      <div class="input-group">
+        <label>🚌 Bus Type</label>
+        <select id="busType">
+          <option value="all">All Types</option>
+          <option value="local">Local Bus</option>
+          <option value="ac">A/C Bus</option>
+          <option value="nonac">Non A/C Bus</option>
+          <option value="ksrtc">KSRTC</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>🕐 Departure Time</label>
+        <input type="time" id="travelTime">
+      </div>
+      <button class="btn-confirm" id="searchBtn" style="margin-top:6px">🔍 Search Buses</button>
+    </div>
+
+    <!-- Bus Types with Facilities -->
+    <div class="section-title">🚌 Bus Types & Facilities</div>
+    <div class="bus-type-list">
+
+      <!-- Local Bus -->
+      <div class="bus-type-item" id="localBusType">
+        <div class="type-name"><span class="dot" style="background:#81c784"></span> Local Bus</div>
+        <span class="arrow-icon">→</span>
+      </div>
+      <div class="facilities-panel" id="localFacilities">
+        <span class="facility-tag">🚌 Regular Stops</span>
+        <span class="facility-tag">🎵 Music</span>
+        <span class="facility-tag">📱 Customer Support</span>
+      </div>
+
+      <!-- A/C Bus -->
+      <div class="bus-type-item" id="acBusType">
+        <div class="type-name"><span class="dot" style="background:#64b5f6"></span> A/C Bus</div>
+        <span class="arrow-icon">→</span>
+      </div>
+      <div class="facilities-panel" id="acFacilities">
+        <span class="facility-tag">❄️ A/C</span>
+        <span class="facility-tag">📶 Free WiFi</span>
+        <span class="facility-tag">🔌 Charging Plug</span>
+        <span class="facility-tag">💧 Water Bottle</span>
+        <span class="facility-tag">🎵 Music</span>
+        <span class="facility-tag">🧻 Wipes</span>
+        <span class="facility-tag">📱 Customer Support</span>
+        <span class="facility-tag">🍔 Food Order</span>
+      </div>
+
+      <!-- Non A/C Bus -->
+      <div class="bus-type-item" id="nonacBusType">
+        <div class="type-name"><span class="dot" style="background:#ffb74d"></span> Non A/C Bus</div>
+        <span class="arrow-icon">→</span>
+      </div>
+      <div class="facilities-panel" id="nonacFacilities">
+        <span class="facility-tag">💧 Water Bottle</span>
+        <span class="facility-tag">🎵 Music</span>
+        <span class="facility-tag">📱 Customer Support</span>
+      </div>
+
+      <!-- KSRTC -->
+      <div class="bus-type-item" id="ksrtcBusType">
+        <div class="type-name"><span class="dot" style="background:#ce93d8"></span> KSRTC</div>
+        <span class="arrow-icon">→</span>
+      </div>
+      <div class="facilities-panel" id="ksrtcFacilities">
+        <span class="facility-tag">📶 Free WiFi</span>
+        <span class="facility-tag">🔌 Charging Plug</span>
+        <span class="facility-tag">💧 Water Bottle</span>
+        <span class="facility-tag">🎵 Music</span>
+        <span class="facility-tag">🧻 Wipes</span>
+        <span class="facility-tag">📱 Customer Support</span>
+        <span class="facility-tag">🍔 Food Order</span>
+      </div>
+    </div>
+
+    <!-- Bus List -->
+    <div class="section-title">🕐 Available Buses</div>
+    <div id="noResults" class="no-results" style="display:none">
+      <div class="no-results-icon">🔍</div>
+      <p>No buses found for your search.</p>
+      <p class="no-results-hint">Try changing your route, date, or bus type.</p>
+    </div>
+    <div class="bus-list" id="busList"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

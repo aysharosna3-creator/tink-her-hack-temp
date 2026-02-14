@@ -1,0 +1,1092 @@
+/* ============================================
+   FindMyBus — Shared Styles
+   Pastel, silent, cute theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --bg-primary: #f3eef8;
+  --bg-secondary: #e8f0fe;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-glass: rgba(255, 255, 255, 0.55);
+
+  --pastel-lavender: #c9b8e8;
+  --pastel-pink: #f2c6d0;
+  --pastel-mint: #b5e8d5;
+  --pastel-peach: #fdd9b5;
+  --pastel-sky: #b3d9f2;
+  --pastel-yellow: #fce9a6;
+  --pastel-lilac: #d5c6f0;
+  --pastel-rose: #f7b7c5;
+
+  --text-primary: #3a3550;
+  --text-secondary: #6b6480;
+  --text-muted: #9e97b0;
+  --text-blue: #4a6cf7;
+  --text-white: #ffffff;
+
+  --bus-yellow: #fdd835;
+  --bus-yellow-dark: #f9a825;
+  --green-booked: #81c784;
+  --green-outline: #a5d6a7;
+  --accent: #7c6bc4;
+  --accent-light: #a78bfa;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 24px rgba(60, 50, 90, 0.08);
+  --shadow-hover: 0 8px 32px rgba(60, 50, 90, 0.14);
+  --transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f3eef8 0%, #e8f0fe 40%, #fce4ec 70%, #e8f5e9 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* subtle floating blobs for "silent" background */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  width: 420px;
+  height: 420px;
+  background: var(--pastel-lavender);
+  top: -80px;
+  left: -100px;
+  animation: floatBlob 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  width: 350px;
+  height: 350px;
+  background: var(--pastel-pink);
+  bottom: -60px;
+  right: -80px;
+  animation: floatBlob 22s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-20px, 50px) scale(0.95);
+  }
+}
+
+/* ---------- Container ---------- */
+.container {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+  position: relative;
+}
+
+/* ---------- Glass Card ---------- */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* ---------- Header / Brand ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.brand-text {
+  position: relative;
+}
+
+.brand-text h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-blue);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.brand-text .search-icon-mini {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  font-size: 13px;
+  color: var(--accent);
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ---------- Cute Bus Icon (now handled by img styles at bottom) ---------- */
+
+/* ---------- Inputs ---------- */
+.input-group {
+  margin-bottom: 14px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(124, 107, 196, 0.18);
+  border-radius: var(--radius-sm);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.7);
+  outline: none;
+  transition: var(--transition);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
+  background: #fff;
+}
+
+.input-group input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ---------- Bus Type Cards ---------- */
+.bus-type-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.bus-type-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-glass);
+  border: 1.5px solid rgba(124, 107, 196, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.bus-type-item:hover {
+  background: rgba(201, 184, 232, 0.18);
+  border-color: var(--pastel-lavender);
+}
+
+.bus-type-item.active {
+  background: rgba(201, 184, 232, 0.25);
+  border-color: var(--accent-light);
+}
+
+.bus-type-item .type-name {
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bus-type-item .type-name span.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bus-type-item .arrow-icon {
+  font-size: 18px;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+.bus-type-item:hover .arrow-icon {
+  transform: translateX(3px);
+}
+
+/* Facility dropdown */
+.facilities-panel {
+  display: none;
+  padding: 10px 16px 6px;
+  background: rgba(248, 245, 255, 0.7);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  margin-top: -2px;
+  border: 1.5px solid rgba(124, 107, 196, 0.08);
+  border-top: none;
+}
+
+.facilities-panel.open {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+.facilities-panel .facility-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(124, 107, 196, 0.12);
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin: 3px 4px 3px 0;
+}
+
+.facilities-panel .facility-tag svg {
+  width: 13px;
+  height: 13px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Bus List ---------- */
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bus-card {
+  background: var(--bg-card);
+  border: 1.5px solid rgba(124, 107, 196, 0.10);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.bus-card:hover {
+  border-color: var(--accent-light);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.bus-card .bus-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bus-card .bus-name {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.bus-card .bus-route {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.bus-card .bus-time-badge {
+  background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-sky));
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* ---------- Section Title ---------- */
+.section-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Feature Grid (Page 2) ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 10px;
+  background: var(--bg-card);
+  border: 1.5px solid rgba(124, 107, 196, 0.10);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-light);
+}
+
+.feature-card .ficon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.feature-card .ficon.lavender {
+  background: rgba(201, 184, 232, 0.3);
+}
+
+.feature-card .ficon.pink {
+  background: rgba(242, 198, 208, 0.3);
+}
+
+.feature-card .ficon.mint {
+  background: rgba(181, 232, 213, 0.3);
+}
+
+.feature-card .ficon.peach {
+  background: rgba(253, 217, 181, 0.3);
+}
+
+.feature-card .ficon.sky {
+  background: rgba(179, 217, 242, 0.3);
+}
+
+.feature-card .ficon.yellow {
+  background: rgba(252, 233, 166, 0.3);
+}
+
+.feature-card .flabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* ---------- History ---------- */
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-glass);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  border: 1px solid rgba(124, 107, 196, 0.08);
+}
+
+.history-item .hi-icon {
+  font-size: 22px;
+}
+
+.history-item .hi-details {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.history-item .hi-details strong {
+  color: var(--text-primary);
+}
+
+/* ---------- Seat Grid (Page 5) ---------- */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  max-width: 280px;
+  margin: 0 auto 20px;
+}
+
+.seat-grid .aisle {
+  visibility: hidden;
+}
+
+.seat {
+  width: 42px;
+  height: 42px;
+  border: 2.5px solid var(--green-outline);
+  border-radius: 8px 8px 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green-outline);
+  cursor: pointer;
+  transition: var(--transition);
+  background: transparent;
+  position: relative;
+}
+
+.seat:hover {
+  transform: scale(1.08);
+  border-color: var(--accent-light);
+}
+
+.seat.booked {
+  background: var(--green-booked);
+  border-color: var(--green-booked);
+  color: #fff;
+  cursor: default;
+}
+
+.seat.selected {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Map Container (Page 4) ---------- */
+.map-container {
+  width: 100%;
+  height: 350px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid rgba(124, 107, 196, 0.12);
+  margin-bottom: 16px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Contact Cards (Page 6) ---------- */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1.5px solid rgba(124, 107, 196, 0.10);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.contact-card .cc-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-card .cc-info {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.contact-card .cc-info strong {
+  font-size: 14px;
+}
+
+/* ---------- Ticket Styles (Page 7) ---------- */
+.ticket-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ticket-header .ticket-icons {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.ticket-header .ticket-quote {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.payment-toggle {
+  display: flex;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid rgba(124, 107, 196, 0.18);
+  margin-bottom: 16px;
+}
+
+.payment-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+}
+
+.payment-toggle button.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff;
+}
+
+/* ---------- Confirm Button (Animated) ---------- */
+.btn-confirm {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.btn-confirm:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(124, 107, 196, 0.3);
+}
+
+.btn-confirm::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent);
+  transform: rotate(25deg);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -60%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+/* ---------- Offer Cards (Page 8) ---------- */
+.offer-card {
+  background: var(--bg-card);
+  border: 1.5px solid rgba(124, 107, 196, 0.10);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 12px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+}
+
+.offer-card.gold::before {
+  background: linear-gradient(to bottom, #fdd835, #ff8f00);
+}
+
+.offer-card.rose::before {
+  background: linear-gradient(to bottom, #f48fb1, #e91e63);
+}
+
+.offer-card.mint-accent::before {
+  background: linear-gradient(to bottom, #81c784, #2e7d32);
+}
+
+.offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.offer-card .offer-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.offer-card.gold .offer-badge {
+  background: rgba(253, 216, 53, 0.25);
+  color: #f57f17;
+}
+
+.offer-card.rose .offer-badge {
+  background: rgba(244, 143, 177, 0.25);
+  color: #c2185b;
+}
+
+.offer-card.mint-accent .offer-badge {
+  background: rgba(129, 199, 132, 0.25);
+  color: #2e7d32;
+}
+
+.offer-card .offer-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.offer-card .offer-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.offer-card .offer-code {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: rgba(124, 107, 196, 0.08);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* ---------- Confirmation Page (Page 9) ---------- */
+.confirm-page {
+  text-align: center;
+}
+
+.confirm-page .check-circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pastel-mint), #81c784);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #fff;
+  animation: popIn 0.5s cubic-bezier(.17, .67, .35, 1.2);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  80% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.confirm-page h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.confirm-page .wish-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.summary-table td {
+  padding: 8px 12px;
+  font-size: 13px;
+  background: var(--bg-glass);
+  border: 1px solid rgba(124, 107, 196, 0.06);
+}
+
+.summary-table td:first-child {
+  border-radius: 8px 0 0 8px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  width: 38%;
+}
+
+.summary-table td:last-child {
+  border-radius: 0 8px 8px 0;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ---------- Page Headline ---------- */
+.page-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.page-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* ---------- Back Link ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.back-link:hover {
+  color: var(--accent-light);
+  transform: translateX(-3px);
+}
+
+/* ---------- Selected Bus Badge ---------- */
+.selected-bus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-sky));
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+/* ---------- 24/7 Badge ---------- */
+.badge-247 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--pastel-mint), #81c784);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  animation: pulse247 2s ease-in-out infinite;
+}
+
+@keyframes pulse247 {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(129, 199, 132, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(129, 199, 132, 0);
+  }
+}
+
+/* ---------- Utilities ---------- */
+.mb-4 {
+  margin-bottom: 4px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ---------- Seat Legend ---------- */
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.seat-legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.seat-legend .leg-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.leg-box.booked-leg {
+  background: var(--green-booked);
+}
+
+.leg-box.available-leg {
+  border: 2.5px solid var(--green-outline);
+  background: transparent;
+}
+
+.leg-box.selected-leg {
+  background: var(--accent-light);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 12px 32px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .page-headline {
+    font-size: 19px;
+  }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pastel-lavender);
+  border-radius: 10px;
+}
+
+/* Map route info */
+.route-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  border: 1.5px solid rgba(124, 107, 196, 0.1);
+}
+
+.route-info .ri-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.route-info .ri-text {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Ticket rate display */
+.rate-display {
+  text-align: center;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(201, 184, 232, 0.15), rgba(179, 217, 242, 0.15));
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.rate-display .rate-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.rate-display .rate-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ---------- No Results ---------- */
+.no-results {
+  text-align: center;
+  padding: 30px 20px;
+  background: var(--bg-glass);
+  border-radius: var(--radius);
+  border: 1.5px dashed rgba(124, 107, 196, 0.2);
+  margin-bottom: 12px;
+}
+
+.no-results-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+  opacity: 0.6;
+  animation: bounce 2s ease infinite;
+}
+
+.no-results p {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.no-results .no-results-hint {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ---------- Logo Image ---------- */
+.bus-icon-cute {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 12px rgba(60, 50, 90, 0.1);
+}

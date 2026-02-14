@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FindMyBus — Your booking is confirmed! Have a safe journey">
+    <title>FindMyBus — Booking Confirmed!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="confirm">
+    <div class="container">
+
+        <div class="confirm-page">
+
+            <!-- Success Check -->
+            <div class="check-circle">✓</div>
+
+            <h2>Booking Confirmed!</h2>
+            <p class="wish-text">Wishing you a safe and happy journey! 🚌💜</p>
+
+            <!-- Cute bus for farewell -->
+            <div style="margin:0 auto 20px;width:100px">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="25" width="80" height="45" rx="12" fill="#fdd835" />
+                    <rect x="10" y="25" width="80" height="15" rx="12" fill="#f9a825" />
+                    <rect x="20" y="35" width="16" height="12" rx="3" fill="#e3f2fd" opacity="0.9" />
+                    <rect x="42" y="35" width="16" height="12" rx="3" fill="#e3f2fd" opacity="0.9" />
+                    <rect x="64" y="35" width="16" height="12" rx="3" fill="#e3f2fd" opacity="0.9" />
+                    <circle cx="35" cy="55" r="7" fill="#fff" />
+                    <circle cx="65" cy="55" r="7" fill="#fff" />
+                    <circle cx="36" cy="54" r="4" fill="#3a3550" />
+                    <circle cx="66" cy="54" r="4" fill="#3a3550" />
+                    <circle cx="37.5" cy="52.5" r="1.5" fill="#fff" />
+                    <circle cx="67.5" cy="52.5" r="1.5" fill="#fff" />
+                    <path d="M 40 62 Q 50 70 60 62" stroke="#3a3550" stroke-width="2.5" fill="none"
+                        stroke-linecap="round" />
+                    <circle cx="28" cy="73" r="7" fill="#5d4e8c" />
+                    <circle cx="28" cy="73" r="3" fill="#e0d6f2" />
+                    <circle cx="72" cy="73" r="7" fill="#5d4e8c" />
+                    <circle cx="72" cy="73" r="3" fill="#e0d6f2" />
+                    <circle cx="14" cy="55" r="3" fill="#ffe082" />
+                    <circle cx="86" cy="55" r="3" fill="#ffe082" />
+                    <ellipse cx="27" cy="60" rx="4" ry="2.5" fill="#f8bbd0" opacity="0.5" />
+                    <ellipse cx="73" cy="60" rx="4" ry="2.5" fill="#f8bbd0" opacity="0.5" />
+                </svg>
+            </div>
+
+            <!-- Summary Table -->
+            <div class="glass-card" style="text-align:left">
+                <div class="section-title">📋 Booking Summary</div>
+                <table class="summary-table">
+                    <tbody id="summaryBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Actions -->
+            <div style="margin-top:20px;display:flex;gap:10px">
+                <a href="index.html" class="btn-confirm"
+                    style="text-decoration:none;text-align:center;flex:1;font-size:13px">🏠 Home</a>
+                <a href="journey.html" class="btn-confirm"
+                    style="text-decoration:none;text-align:center;flex:1;font-size:13px;background:linear-gradient(135deg,#b5e8d5,#81c784)">🗺️
+                    New Journey</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FindMyBus — Track your bus in real time on the map">
+    <title>FindMyBus — Bus Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body data-page="tracking">
+    <div class="container">
+
+        <a href="journey.html" class="back-link">← Back to Journey</a>
+
+        <h1 class="page-headline">📍 Bus Tracking</h1>
+        <p class="page-sub">See where your bus is right now</p>
+
+        <div class="glass-card mb-16">
+            <div style="font-size:13px;color:var(--text-secondary)" id="trackingInfo">Loading bus info...</div>
+        </div>
+
+        <!-- Route Info Legend -->
+        <div class="route-info">
+            <div class="ri-dot" style="background:#7c6bc4"></div>
+            <div class="ri-text">📍 = Bus Location</div>
+        </div>
+        <div class="route-info">
+            <div class="ri-dot" style="background:#a78bfa;width:10px;height:10px"></div>
+            <div class="ri-text">● = Bus Stop</div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
