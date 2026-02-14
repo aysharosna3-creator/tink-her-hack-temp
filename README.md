@@ -2,18 +2,18 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# findmybus 🎯
 
 ## Basic Details
 
 ### Team Name: [Name]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Aysha Rosna - PPTM Arts and Science College Cherur
+
 
 ### Hosted Project Link
-[mention your project hosted link here]
+https://aysharosna3-creator.github.io/tink-her-hack-temp/
 
 ### Project Description
 [2-3 lines about what your project does]
@@ -83,13 +83,13 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1](https://github.com/aysharosna3-creator/tink-her-hack-temp/blob/main/Screenshot%20(20).png)
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![Screenshot2](https://github.com/aysharosna3-creator/tink-her-hack-temp/blob/main/Screenshot%20(10).png)
 *Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
+![Screenshot3](https://github.com/aysharosna3-creator/tink-her-hack-temp/blob/main/Screenshot%20(19).png)
 *Add caption explaining what this shows*
 
 #### Diagrams
