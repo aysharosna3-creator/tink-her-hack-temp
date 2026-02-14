@@ -19,10 +19,10 @@ https://aysharosna3-creator.github.io/tink-her-hack-temp/
 [2-3 lines about what your project does]
 
 ### The Problem statement
-[What problem are you solving?]
+passengers waste their time by waiting their bus and booking etc.
 
 ### The Solution
-[How are you solving it?]
+easily can detect the bus's seats,tickets booking, can connect with customer care,and etc
 
 ---
 
